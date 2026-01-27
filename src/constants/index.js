@@ -39,3 +39,18 @@ export const DOMAINS = [
     value: "Human Resource",
   },
 ];
+
+export const ACTIVITIES = [
+  {
+    refCode: "Dan",
+    value: "Dance",
+  },
+  {
+    refCode: "Cric",
+    value: "Cricket",
+  },
+  {
+    refCode: "IG",
+    value: "Indoor Games",
+  }
+];

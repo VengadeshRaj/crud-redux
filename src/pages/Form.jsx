@@ -1,58 +1,23 @@
-import { DOMAINS, GENDERS } from "../constants";
+import { DOMAINS, GENDERS,ACTIVITIES } from "../constants";
+import TextBox from "../components/TextBox";
+import Dropdown from '../components/Dropdown';
+import RadioGroup from "../components/RadioGroup";
 
 export default function Form() {
-  const buildGender = () =>
-    GENDERS.map((g) => <option value={g.refCode}>{g.value}</option>);
 
-  const builDomain = () =>
-    DOMAINS.map((d) => (
-      <div className="flex flex-row gap-5">
-        <input type="radio" name="domain" className=""/>
-        <label className="font-medium">{d.value}</label>
-      </div>
-    ));
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    alert();
+  };
 
   return (
-    <div className="flex flex-col justify-center h-screen items-center bg-gray-100 gap-10 p-5">
+    <div className="flex flex-col justify-center h-screen items-center bg-gray-100 gap-10 p-5 font-medium">
       <h1 className="text-3xl font-bold">Employee Registration Form</h1>
-      <form className="flex flex-col gap-5">
-        <div className="flex flex-row gap-5">
-          <label className="font-medium">
-            {" "}
-            First Name : <span className="text-red-500">*</span>
-          </label>
-          <input className="border border-black rounded focus:outline-sky-600 size-8 w-64" />
-        </div>
-        <div className="flex flex-row gap-5">
-          <label className="font-medium">
-            {" "}
-            Last Name : <span className="text-red-500">*</span>
-          </label>
-          <input className="border border-black rounded focus:outline-sky-600 size-8 w-64" />
-        </div>
-        <div className="flex flex-row gap-10">
-          <label className="font-medium">
-            {" "}
-            Gender : <span className="text-red-500">*</span>
-          </label>
-          <div>
-            <select
-              className="w-64 border border-black size-8 rounded focus:outline-sky-600 "
-              defaultValue={""}
-            >
-              {buildGender()}
-            </select>
-          </div>
-        </div>
-        <div className="flex flex-row gap-10">
-          <label className="font-medium">
-            {" "}
-            Domain : <span className="text-red-500">*</span>
-          </label>
-          <div>
-            {builDomain()}
-          </div>
-        </div>
+      <form className="flex flex-col gap-5" onSubmit={(e) => onFormSubmit(e)}>
+        <TextBox title="First Name" isRequired />
+        <TextBox title="Last Name" isRequired />
+        <Dropdown title="Gender" isRequired values={GENDERS}/>
+        <RadioGroup title="Domain" groupName="domain" isRequired values={DOMAINS} />
         <div className="flex flex-row gap-5">
           <label className="font-medium">
             {" "}
@@ -72,6 +37,18 @@ export default function Form() {
               <label className="font-medium">Indoor Games</label>
             </div>
           </div>
+        </div>
+        <div className="flex flex-row gap-5 justify-center font-medium">
+          <button className=" rounded px-3 py-2 bg-gray-300 hover:bg-gray-400">
+            Cancel
+          </button>
+          <button
+            className=" rounded px-3 py-2 bg-blue-500 text-white hover:bg-blue-700"
+            type="submit"
+            onSubmit={(e) => onFormSubmit(e)}
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>
