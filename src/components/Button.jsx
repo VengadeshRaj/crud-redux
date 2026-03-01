@@ -5,7 +5,7 @@ const Button = (props) => {
     : "bg-gray-300 hover:bg-gray-400";
   return (
     <button
-      className={`rounded px-3 py-2 ${dynamicStyles}`}
+      className={`shadow-xl shadow-blue-500/50 font-bold rounded px-3 py-2 ${dynamicStyles}`}
       type={isSubmit ? "submit" : "button"}
     >
       {title}

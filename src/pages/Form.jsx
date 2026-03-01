@@ -17,14 +17,6 @@ export default function Form() {
       <form className="flex flex-col gap-5" onSubmit={(e) => onFormSubmit(e)}>
         <TextBox title="First Name" isRequired />
         <TextBox title="Last Name" isRequired />
-        <Dropdown title="Gender" isRequired values={GENDERS} />
-        <RadioGroup
-          title="Domain"
-          groupName="domain"
-          isRequired
-          values={DOMAINS}
-        />
-        <CheckboxGroup title="Intrested in" isRequired values={ACTIVITIES} />
         <div className="flex flex-row gap-5 justify-center font-medium">
           <Button title="Cancel" type="secondary" />
           <Button title="Submit" type="primary" isSubmit />
